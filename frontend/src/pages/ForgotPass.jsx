@@ -45,7 +45,7 @@ const ForgotPass = () => {
     if (!validatePhone(cleanPhone)) {
       setPhoneError('Please enter a valid 10-digit phone number with or without country code (91)');
       return;
-    }
+          }
     try {
       setIsLoading(true);
       setOtpError('');
@@ -82,7 +82,7 @@ const ForgotPass = () => {
         setOtpError('');
       } else {
         setOtpError(data.error || 'Failed to send OTP');
-      }
+    }
     } catch (error) {
       console.error('OTP request error:', error);
       setOtpError(error.message || 'Failed to connect to the server. Please check if the server is running.');
@@ -155,7 +155,7 @@ const ForgotPass = () => {
 
       if (data.success) {
         setSuccessMessage('Password reset successful! Redirecting to login...');
-        setTimeout(() => {
+    setTimeout(() => {
           navigate('/login');
         }, 2000);
       } else {
@@ -174,13 +174,13 @@ const ForgotPass = () => {
       <motion.div
         className="relative bg-white/70 backdrop-blur-xl rounded-3xl shadow-2xl p-6 w-full max-w-sm border border-green-200"
         initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
+          animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-      >
+        >
         <div className="text-center mb-8">
           <h2 className="text-2xl font-bold text-gray-800">Reset Password</h2>
           <p className="text-gray-600 mt-2">Enter your phone number to reset your password</p>
-        </div>
+          </div>
 
         <form onSubmit={handleSendOtp} className="space-y-4">
           <div>
@@ -199,7 +199,7 @@ const ForgotPass = () => {
 
           {!otpSent ? (
             <button
-              type="submit"
+                type="submit"
               disabled={isLoading}
               className={`w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white ${
                 isLoading ? 'bg-blue-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700'
@@ -224,13 +224,13 @@ const ForgotPass = () => {
               </div>
 
               {!otpValid ? (
-                <button
-                  type="button"
+              <button
+                type="button"
                   onClick={handleVerifyOtp}
                   className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                 >
                   Verify OTP
-                </button>
+              </button>
               ) : (
                 <>
                   <div>
@@ -257,15 +257,15 @@ const ForgotPass = () => {
                       placeholder="Confirm new password"
                       required
                     />
-                  </div>
+            </div>
 
-                  <button
-                    type="button"
+              <button
+                type="button"
                     onClick={handleResetPassword}
                     className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                   >
                     Reset Password
-                  </button>
+              </button>
                 </>
               )}
             </>
