@@ -7,4 +7,13 @@ export default defineConfig({
     react(), 
     tailwindcss()
   ],
+  build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
+    sourcemap: true
+  },
+  server: {
+    port: process.env.PORT || 3000,
+    host: true
+  }
 })
