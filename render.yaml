@@ -5,9 +5,26 @@ services:
     env: node
     nodeVersion: 18.17.0
     buildCommand: |
-      cd frontend && npm install --legacy-peer-deps && npm run build
-      cd ../backend && npm install --legacy-peer-deps
-    startCommand: cd backend && npm start
+      # Set Node.js version
+      export NODE_VERSION=18.17.0
+      export PATH="/opt/render/project/nodes/node-${NODE_VERSION}/bin:$PATH"
+      
+      # Install frontend dependencies and build
+      cd frontend
+      chmod +x build.sh
+      ./build.sh
+      
+      # Install backend dependencies
+      cd ../backend
+      chmod +x build.sh
+      ./build.sh
+      
+      # Verify Node.js version
+      node -v
+    startCommand: |
+      export NODE_VERSION=18.17.0
+      export PATH="/opt/render/project/nodes/node-${NODE_VERSION}/bin:$PATH"
+      cd backend && npm start
     envVars:
       - key: NODE_ENV
         value: production
