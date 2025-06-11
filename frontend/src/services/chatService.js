@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5002/api/chat';
+const API_URL = 'https://hope-i-bot.onrender.com/api/chat';
+
 
 export const getChats = async (token) => {
   const response = await axios.get(`${API_URL}/list`, {

@@ -20,7 +20,8 @@ const ChatRoom = ({ room, currentUserId, currentUserType, otherUserName }) => {
     socket.emit('join_room', { room });
 
     // Fetch message history
-    fetch(`http://localhost:5002/api/messages/${room}`)
+    fetch(`https://hope-i-bot.onrender.com/api/messages/${room}`)
+
       .then(res => res.json())
       .then(setMessages);
 
