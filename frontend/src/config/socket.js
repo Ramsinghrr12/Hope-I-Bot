@@ -4,7 +4,7 @@ let socket = null;
 
 export const initializeSocket = (token) => {
   if (!socket) {
-    socket = io('http://localhost:5002', {
+    socket = io('https://hope-i-bot.onrender.com', {
       auth: { token }
     });
 
